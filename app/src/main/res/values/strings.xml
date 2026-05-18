@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">DebateMe</string>
+    <string name="tagline">Challenge Your Thinking</string>
+    <string name="enter_topic_hint">Enter your opinion or claim…</string>
+    <string name="select_tone">Select Debate Tone</string>
+    <string name="tone_casual">Casual</string>
+    <string name="tone_academic">Academic</string>
+    <string name="tone_challenging">Challenging</string>
+    <string name="start_debate">Start Debate</string>
+    <string name="view_history">Past Debates</string>
+    <string name="type_argument">Type your argument…</string>
+    <string name="send">Send</string>
+    <string name="ai_thinking">AI is thinking…</string>
+    <string name="debate_ended">Debate session ended</string>
+    <string name="end_debate">End Debate</string>
+    <string name="no_history">No past debates yet.\nStart your first debate!</string>
+    <string name="loading_model">Loading AI model…</string>
+    <string name="model_ready">AI ready. Make your case!</string>
+    <string name="model_error">Failed to load AI model. Please ensure the model file is present.</string>
+    <string name="empty_topic">Please enter a topic first</string>
+    <string name="you">You</string>
+    <string name="ai">DebateMe AI</string>
+</resources>

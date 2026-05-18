@@ -1,0 +1,27 @@
+<resources>
+    <style name="Theme.DebateMe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+    </style>
+
+    <style name="Theme.DebateMe.Splash" parent="Theme.DebateMe">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="ToneButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="cornerRadius">24dp</item>
+    </style>
+</resources>

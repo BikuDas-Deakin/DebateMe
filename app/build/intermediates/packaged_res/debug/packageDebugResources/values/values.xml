@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#E94560</color>
+    <color name="ai_bubble">#E94560</color>
+    <color name="background">#0F3460</color>
+    <color name="card_bg">#16213E</color>
+    <color name="divider">#2A2A4E</color>
+    <color name="light_gray">#B0B0C0</color>
+    <color name="primary">#1A1A2E</color>
+    <color name="primary_variant">#16213E</color>
+    <color name="secondary">#7B7FC4</color>
+    <color name="secondary_variant">#4A4E8C</color>
+    <color name="surface">#1A1A2E</color>
+    <color name="tone_academic">#2980B9</color>
+    <color name="tone_casual">#27AE60</color>
+    <color name="tone_challenging">#E94560</color>
+    <color name="user_bubble">#4A4E8C</color>
+    <color name="white">#FFFFFF</color>
+    <dimen name="bubble_radius">18dp</dimen>
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_headline">28sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_title">20sp</dimen>
+    <string name="ai">DebateMe AI</string>
+    <string name="ai_thinking">AI is thinking…</string>
+    <string name="app_name">DebateMe</string>
+    <string name="debate_ended">Debate session ended</string>
+    <string name="empty_topic">Please enter a topic first</string>
+    <string name="end_debate">End Debate</string>
+    <string name="enter_topic_hint">Enter your opinion or claim…</string>
+    <string name="loading_model">Loading AI model…</string>
+    <string name="model_error">Failed to load AI model. Please ensure the model file is present.</string>
+    <string name="model_ready">AI ready. Make your case!</string>
+    <string name="no_history">No past debates yet.\nStart your first debate!</string>
+    <string name="select_tone">Select Debate Tone</string>
+    <string name="send">Send</string>
+    <string name="start_debate">Start Debate</string>
+    <string name="tagline">Challenge Your Thinking</string>
+    <string name="tone_academic">Academic</string>
+    <string name="tone_casual">Casual</string>
+    <string name="tone_challenging">Challenging</string>
+    <string name="type_argument">Type your argument…</string>
+    <string name="view_history">Past Debates</string>
+    <string name="you">You</string>
+    <style name="Theme.DebateMe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+    </style>
+    <style name="Theme.DebateMe.Splash" parent="Theme.DebateMe">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="ToneButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="cornerRadius">24dp</item>
+    </style>
+</resources>

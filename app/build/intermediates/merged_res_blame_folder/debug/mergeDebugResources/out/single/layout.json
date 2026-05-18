@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.example.debateme.app-mergeDebugResources-35:/layout/activity_history.xml",
+        "source": "com.example.debateme.app-main-38:/layout/activity_history.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-mergeDebugResources-35:/layout/item_chat_message.xml",
+        "source": "com.example.debateme.app-main-38:/layout/item_chat_message.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-mergeDebugResources-35:/layout/activity_home.xml",
+        "source": "com.example.debateme.app-main-38:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-mergeDebugResources-35:/layout/activity_debate.xml",
+        "source": "com.example.debateme.app-main-38:/layout/activity_debate.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-mergeDebugResources-35:/layout/item_history.xml",
+        "source": "com.example.debateme.app-main-38:/layout/item_history.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-mergeDebugResources-35:/layout/activity_splash.xml",
+        "source": "com.example.debateme.app-main-38:/layout/activity_splash.xml"
+    }
+]

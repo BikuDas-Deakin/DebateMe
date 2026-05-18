@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "com.example.debateme.app-debug-36:/layout_activity_splash.xml.flat",
+        "source": "com.example.debateme.app-main-38:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/layout_activity_history.xml.flat",
+        "source": "com.example.debateme.app-main-38:/layout/activity_history.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/layout_activity_debate.xml.flat",
+        "source": "com.example.debateme.app-main-38:/layout/activity_debate.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/layout_item_history.xml.flat",
+        "source": "com.example.debateme.app-main-38:/layout/item_history.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/drawable_bg_user_bubble.xml.flat",
+        "source": "com.example.debateme.app-main-38:/drawable/bg_user_bubble.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/drawable_bg_ai_bubble.xml.flat",
+        "source": "com.example.debateme.app-main-38:/drawable/bg_ai_bubble.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/layout_activity_home.xml.flat",
+        "source": "com.example.debateme.app-main-38:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/drawable_bg_tone_badge.xml.flat",
+        "source": "com.example.debateme.app-main-38:/drawable/bg_tone_badge.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.debateme.app-main-38:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/drawable_bg_input_field.xml.flat",
+        "source": "com.example.debateme.app-main-38:/drawable/bg_input_field.xml"
+    },
+    {
+        "merged": "com.example.debateme.app-debug-36:/layout_item_chat_message.xml.flat",
+        "source": "com.example.debateme.app-main-38:/layout/item_chat_message.xml"
+    }
+]
