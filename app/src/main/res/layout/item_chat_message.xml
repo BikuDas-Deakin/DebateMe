@@ -6,7 +6,9 @@
     android:layout_height="wrap_content"
     android:padding="4dp">
 
-    <!-- User bubble (right) -->
+    <!-- ══════════════════════════════════════
+         USER side (right-aligned)
+         ══════════════════════════════════════ -->
     <TextView
         android:id="@+id/tvUserSender"
         android:layout_width="wrap_content"
@@ -25,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/bg_user_bubble"
         android:maxWidth="280dp"
         android:padding="12dp"
@@ -35,7 +37,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUserSender" />
 
-    <!-- AI bubble (left) -->
+    <!--
+        Argument quality badge — shown below the user bubble once the AI has
+        rated this turn. Colour is set programmatically in ChatAdapter.
+    -->
+    <TextView
+        android:id="@+id/tvQualityBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_tone_badge"
+        android:paddingStart="8dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUserMessage" />
+
+    <!-- ══════════════════════════════════════
+         AI side (left-aligned)
+         ══════════════════════════════════════ -->
     <TextView
         android:id="@+id/tvAiSender"
         android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.example.debateme.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,10 @@ public class DebateActivity extends AppCompatActivity {
     private DebateViewModel viewModel;
     private ChatAdapter chatAdapter;
 
+    // Guard flag — prevents the analysisResult observer from navigating more
+    // than once (e.g. on ViewModel reuse or double LiveData emission).
+    private boolean analysisNavigated = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +33,7 @@ public class DebateActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         String topic = getIntent().getStringExtra("topic");
-        String tone = getIntent().getStringExtra("tone");
+        String tone  = getIntent().getStringExtra("tone");
 
         setupToolbar(topic, tone);
         setupRecyclerView();
@@ -74,6 +79,40 @@ public class DebateActivity extends AppCompatActivity {
             binding.btnSend.setEnabled(!isThinking);
             binding.etMessage.setEnabled(!isThinking);
         });
+
+        // FIX: Three guards added here —
+        // 1. analysisNavigated flag prevents double-navigation
+        // 2. Explicit check rejects the error fallback string so we only
+        //    navigate on a real analysis result
+        // 3. Score is read from getDebateScore().getValue() which is set in
+        //    the same mainHandler.post() block — safe because both LiveData
+        //    values are posted together in DebateViewModel
+        viewModel.getAnalysisResult().observe(this, analysis -> {
+            if (analysisNavigated) return;
+            if (analysis == null || analysis.isEmpty()) return;
+            if (analysis.equals("Analysis could not be generated.")) {
+                // Show the error in status bar instead of navigating with garbage
+                binding.tvStatus.setText("Analysis failed — try again or save without analysis.");
+                return;
+            }
+
+            analysisNavigated = true;
+            viewModel.saveSession();
+
+            // Read score here — both analysisResult and debateScore are set
+            // in the same mainHandler.post() in DebateViewModel so by the time
+            // this observer fires, debateScore.getValue() is already populated.
+            int score = viewModel.getDebateScore().getValue() != null
+                    ? viewModel.getDebateScore().getValue() : 50;
+
+            Intent intent = new Intent(this, AnalysisActivity.class);
+            intent.putExtra("analysis", analysis);
+            intent.putExtra("score", score);
+            intent.putExtra("topic", viewModel.getTopic());
+            intent.putExtra("tone", viewModel.getTone());
+            startActivity(intent);
+            finish();
+        });
     }
 
     private void setupSendButton() {
@@ -88,17 +127,21 @@ public class DebateActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 1, 0, "End & Save").setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        menu.add(0, 1, 0, "End & Analyse").setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        menu.add(0, 2, 0, "Exit Without Saving").setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
+            showEndDebateDialog();
             return true;
         } else if (item.getItemId() == 1) {
             showEndDebateDialog();
+            return true;
+        } else if (item.getItemId() == 2) {
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -107,13 +150,18 @@ public class DebateActivity extends AppCompatActivity {
     private void showEndDebateDialog() {
         new AlertDialog.Builder(this)
                 .setTitle("End Debate")
-                .setMessage("Save this debate session to history?")
-                .setPositiveButton("Save & Exit", (dialog, which) -> {
+                .setMessage("Generate AI analysis of your performance?")
+                .setPositiveButton("Analyse & Save", (dialog, which) -> {
+                    // Reset the flag so a fresh analysis can navigate
+                    analysisNavigated = false;
+                    viewModel.generateAnalysis();
+                    binding.tvStatus.setText("Generating analysis…");
+                })
+                .setNegativeButton("Save Without Analysis", (dialog, which) -> {
                     viewModel.saveSession();
                     finish();
                 })
-                .setNegativeButton("Exit Without Saving", (dialog, which) -> finish())
-                .setNeutralButton("Continue", null)
+                .setNeutralButton("Continue Debating", null)
                 .show();
     }
 

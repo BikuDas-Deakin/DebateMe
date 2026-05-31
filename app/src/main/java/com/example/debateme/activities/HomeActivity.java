@@ -26,9 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupToneButtons() {
-        // Default: Casual selected
         updateToneSelection("Casual");
-
         binding.btnCasual.setOnClickListener(v -> updateToneSelection("Casual"));
         binding.btnAcademic.setOnClickListener(v -> updateToneSelection("Academic"));
         binding.btnChallenging.setOnClickListener(v -> updateToneSelection("Challenging"));
@@ -36,13 +34,10 @@ public class HomeActivity extends AppCompatActivity {
 
     private void updateToneSelection(String tone) {
         selectedTone = tone;
-
-        // Reset all buttons
         binding.btnCasual.setAlpha(0.5f);
         binding.btnAcademic.setAlpha(0.5f);
         binding.btnChallenging.setAlpha(0.5f);
 
-        // Highlight selected
         MaterialButton selected;
         int color;
         switch (tone) {
@@ -71,7 +66,6 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(this, getString(R.string.empty_topic), Toast.LENGTH_SHORT).show();
                 return;
             }
-
             Intent intent = new Intent(this, DebateActivity.class);
             intent.putExtra("topic", topic);
             intent.putExtra("tone", selectedTone);
@@ -80,5 +74,15 @@ public class HomeActivity extends AppCompatActivity {
 
         binding.btnHistory.setOnClickListener(v ->
                 startActivity(new Intent(this, HistoryActivity.class)));
+
+        // FIX 3: Pass the currently selected tone so CategoryActivity can use it.
+        binding.btnCategories.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CategoryActivity.class);
+            intent.putExtra(CategoryActivity.EXTRA_TONE, selectedTone);
+            startActivity(intent);
+        });
+
+        binding.btnStats.setOnClickListener(v ->
+                startActivity(new Intent(this, StatsActivity.class)));
     }
 }

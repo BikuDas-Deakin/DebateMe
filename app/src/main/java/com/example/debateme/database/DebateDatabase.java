@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.example.debateme.models.DebateSession;
 
-@Database(entities = {DebateSession.class}, version = 1, exportSchema = false)
+@Database(entities = {DebateSession.class}, version = 2, exportSchema = false)
 public abstract class DebateDatabase extends RoomDatabase {
 
     private static DebateDatabase instance;

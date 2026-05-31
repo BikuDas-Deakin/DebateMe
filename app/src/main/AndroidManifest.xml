@@ -35,6 +35,23 @@
             android:name=".activities.HistoryActivity"
             android:exported="false" />
 
+        <!-- FIX 6: Register the new detail screen. -->
+        <activity
+            android:name=".activities.HistoryDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.CategoryActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.AnalysisActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.StatsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
